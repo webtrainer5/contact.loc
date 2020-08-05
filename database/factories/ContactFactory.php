@@ -12,8 +12,7 @@ $factory->define(Contact::class, function (Faker $faker) {
         'last_name' => $faker->lastName,
         'phone' => $faker->phoneNumber,
         'email' => $faker->email,
-        'address' => $faker->address,
-        'company_id' => Company::pluck('id')->random()
+        'address' => $faker->address
     ];
 });
 

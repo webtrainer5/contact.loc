@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+use App\Company;
 
 class CompaniesTableSeeder extends Seeder
 {
@@ -13,24 +14,6 @@ class CompaniesTableSeeder extends Seeder
      */
     public function run()
     {
-//        DB::table('companies')->delete();
-//        DB::table('companies')->truncate();
-
-        $faker = Faker::create();
-        $companies = [];
-
-        foreach (range(1,10) as $index)
-        {
-            $companies[] = [
-                'name'  =>  $faker->name,
-                'address'   =>  $faker->address,
-                'website'   =>  $faker->domainName,
-                'email'   =>  $faker->email,
-                'created_at'    =>  now(),
-                'updated_at'    =>  now()
-            ];
-        }
-
-        DB::table('companies')->insert($companies);
+        factory(Company::class, 50)->create();
     }
 }
