@@ -26,4 +26,17 @@
  ************ Model Factories ****************
  * php artisan make:factory ContactFactory -m Contact
  * composer dump-autoload
+ *
+ *
+ ************ Route commands ****************
+ * php artisan route:list
+ * php artisan route:list -c
+ * php artisan route:list --path=contacts
+ * php artisan route:list --path=contacts -r
+ * php artisan route:list --path=contacts -h
+ *
+ *
+ ************ Controllers ****************
+ * php artisan make:controller ContactController
+ *
  **/
