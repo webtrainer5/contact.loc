@@ -39,4 +39,8 @@
  ************ Controllers ****************
  * php artisan make:controller ContactController
  *
+ *
+ ************ Generate pagination view file ****************
+ * php artisan vendor:publish
+ *
  **/
