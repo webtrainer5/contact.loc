@@ -17,10 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
-})->name('contacts.test');
-
 Route::get('/contacts', "ContactController@index")->name('contacts.index');
+Route::post('/contacts', "ContactController@store")->name('contacts.store');
 Route::get('/contacts/create', "ContactController@create")->name('contacts.create');
 Route::get('/contacts/{id}', "ContactController@show")->name('contacts.show');
