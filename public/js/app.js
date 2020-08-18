@@ -17,3 +17,27 @@ document.querySelectorAll('.btn-delete').forEach((button) => {
         }
     });
 });
+
+document.querySelector('#btn-clear').addEventListener('click', function () {
+    // let input = document.querySelector('#search');
+    // let select = document.querySelector('#filter_company_id');
+    //
+    // input.value = "";
+    // select.selectedIndex = 0;
+
+    window.location.href = window.location.href.split('?')[0];
+})
+
+const toggleClearButton = () => {
+    let query = location.search;
+    let pattern = /[?&]search=/;
+    let button = document.querySelector('#btn-clear');
+
+    if (pattern.test(query)) {
+        button.style.display = 'block';
+    } else {
+        button.style.display = 'none';
+    }
+}
+
+toggleClearButton();
