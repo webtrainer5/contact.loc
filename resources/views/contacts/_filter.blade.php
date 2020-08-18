@@ -2,7 +2,6 @@
     <div class="col-md-6"></div>
     <div class="col-md-6">
         <form>
-            @csrf
             <div class="row">
                 <div class="col">
                     <select id="filter_company_id" name="company_id" class="custom-select">
