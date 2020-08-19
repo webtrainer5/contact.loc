@@ -77,7 +77,7 @@
         <hr>
         <div class="form-group row mb-0">
             <div class="col-md-9 offset-md-3">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">{{ $contact->exists ? 'Update' : 'Save' }}</button>
                 <a href=" {{ route('contacts.index') }} " class="btn btn-outline-secondary">Cancel</a>
             </div>
         </div>

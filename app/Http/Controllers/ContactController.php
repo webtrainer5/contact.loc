@@ -4,23 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Contact;
+use App\Scopes\FilterScope;
+use App\Scopes\SearchScope;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
     public function index()
     {
 //        dd(request()->only('company_id'));
+        DB::enableQueryLog();
         $companies = Company::orderBy('name')->pluck('name', 'id')->prepend('All Companies', '');
-        $contacts = Contact::orderBy('id', 'desc')->where(function ($query) {
-            if ($companyId = request('company_id')) {
-                $query->where('company_id', $companyId);
-            }
-
-            if ($search = request('search')) {
-                $query->where('first_name', 'LIKE', "%{$search}%");
-            }
-        })->paginate(10);
+        $contacts = Contact::latestFirst()->paginate(10);
+//        $contacts = Contact::withoutGlobalScope(SearchScope::class)->latestFirst()->paginate(10);
+//        $contacts = Contact::withoutGlobalScopes([SearchScope::class, FilterScope::class])->latestFirst()->paginate(10);
+//        dd(DB::getQueryLog());
         return view('contacts.index', compact('contacts', 'companies'));
     }
 
