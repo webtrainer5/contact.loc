@@ -24,3 +24,7 @@ Route::get('/contacts/{id}', "ContactController@show")->name('contacts.show');
 Route::put('/contacts/{id}', "ContactController@update")->name('contacts.update');
 Route::get('/contacts/{id}/edit', "ContactController@edit")->name('contacts.edit');
 Route::delete('/contacts/{id}', "ContactController@destroy")->name('contacts.destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

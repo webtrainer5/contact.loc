@@ -43,4 +43,8 @@
  ************ Generate pagination view file ****************
  * php artisan vendor:publish
  *
+ *
+ ************ Authentication ****************
+ * composer require laravel/ui --dev
+ * php artisan ui:auth
  **/
